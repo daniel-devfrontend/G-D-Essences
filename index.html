@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Perfumes D&G Essences</title>
+    <link rel="stylesheet" href="catalogo.css">
+    <style>
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .menu-icon {
+            font-size: 24px;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000;
+            min-width: 200px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #eee;
+        }
+        .dropdown-menu a:hover {
+            background: #f9f9f9;
+        }
+        .dropdown-menu.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Abrir menú de colecciones">
+            <span class="menu-icon">☰</span> Colecciones
+        </button>
+        <div class="brand-row">
+            <img src="assets/logo.png" alt="Logo D&G Essences" class="brand-logo">
+        </div>
+        <div id="dropdown-menu" class="dropdown-menu page-nav">
+            <a href="#lattafa">Lattafa</a>
+            <a href="#armaf">Armaf</a>
+            <a href="#herrera">Carolina Herrera</a>
+            <a href="#orientica">Orientica</a>
+            <a href="#lacoste">Lacoste</a>
+            <a href="#haramain">Al Haramain</a>
+            <a href="#gaultier">Jean Paul Gaultier</a>
+            <a href="#afnan">Afnan</a>
+            <a href="#paco-rabanne">Paco Rabanne</a>
+            <a href="#moschino">Moschino</a>
+            <a href="#tommy">Tommy</a>
+            <a href="#dior">Dior</a>
+            <a href="#victorinox">Victorinox</a>
+            <a href="#bharara">Bharara</a>
+            <a href="#versace">Versace</a>
+            <a href="#creed">Creed</a>
+            <a href="#valentino">Valentino</a>
+            <a href="#vulcan">French Avenue</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-inner">
+                <div class="hero-brand">
+                    <img src="assets/logo.png" alt="Logo D&G Essences" class="hero-logo">
+                </div>
+                <div class="hero-copy" style="margin-bottom: 40px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                    <span style="display: inline-block; margin-bottom: 16px; color: #7a675e; text-transform: uppercase; letter-spacing: 0.18em; font-size: 1.2rem;">Catálogo 2026</span>
+                    <h1 style="font-size: 3.2rem; line-height: 1.02; margin: 0 0 20px; font-weight: 800; text-shadow: 0 1px 2px rgba(0,0,0,0.1); color: #2d221d;">D&G Essences Lujo en cada gota.</h1>
+                    <p style="font-size: 1.05rem; line-height: 1.6; max-width: 600px; margin: 0 auto; color: #7a675e; margin-bottom: 15px;">Explora nuestra selección de más de 100 fragancias diseñadas para quienes no se conforman con lo ordinario.</p>
+                    <p style="font-size: 1rem; color: #7a675e; margin-bottom: 15px;">Exclusividad en cada gota. Calidad Top Quality.</p>
+                    <p style="font-size: 1rem; color: #7a675e; margin-bottom: 10px; font-weight: bold;">Conecta con nosotros</p>
+                    <p style="font-size: 1rem; color: #7a675e; margin-bottom: 15px;">Instagram & TikTok: @esense_d&g</p>
+                    <div style="display: flex; justify-content: center; gap: 18px; align-items: center; margin-bottom: 15px;" class="social-links">
+                        <a href="https://www.instagram.com/daniel.devfrontend/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; width: 64px; height: 64px; border-radius: 50%; overflow: hidden; border: 2px solid #a67f68;" class="social-link">
+                            <img src="assets/instagram.jpg" alt="Instagram" style="width: 100%; height: 100%; object-fit: cover;">
+                        </a>
+                        <a href="https://www.tiktok.com/explore" target="_blank" rel="noopener noreferrer" style="display: inline-flex; width: 64px; height: 64px; border-radius: 50%; overflow: hidden; border: 2px solid #2d221d;" class="social-link">
+                            <img src="assets/tiktok.jpg" alt="TikTok" style="width: 100%; height: 100%; object-fit: cover;">
+                        </a>
+                    </div>
+                    <p style="font-size: 1rem; color: #7a675e; margin-bottom: 15px;">Atención Personalizada Consultas y pedidos vía WhatsApp: +1 (555) 123-4567.</p>
+                    <div style="display: flex; justify-content: center; gap: 40px; align-items: center; margin-top: 40px; flex-wrap: wrap;">
+                    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="catalog-container"></div>
+    </main>
+
+    <script>
+        const collections = [
+            { 
+                id: 'lattafa', 
+                title: 'Colección Lattafa', 
+                description: 'Fragancias intensas y modernas con identidad propia.',
+                products: [
+                    { name: 'Asad Lattafa', price: 32, description: 'Oriental intenso con madera, ámbar y especias.', image: 'lattafa/asad lattafa.jpg' },
+                    { name: 'Asad Bourbon Lattafa', price: 32, description: 'Oriental gourmand con vainilla y caramelo.', image: 'lattafa/asad bourbon lattafa.jpg' },
+                    { name: 'Asad Zanzibar Lattafa', price: 32, description: 'Oriental con especias intensas y exóticas.', image: 'lattafa/asad zanzibar lattafa.jpg' },
+                    { name: 'Yara Lattafa', price: 32, description: 'Floral fresco con notas cítricas.', image: 'lattafa/yara lattafa.jpg' },
+                    { name: 'Yara Candy Lattafa', price: 32, description: 'Gourmand dulce con frutas y vainilla.', image: 'lattafa/yara candy lattafa.jpg' },
+                    { name: 'Yara Moi Lattafa', price: 32, description: 'Floral femenino con rosa y jazmín.', image: 'lattafa/yara moi lattafa.jpg' },
+                    { name: 'Yara Tous Lattafa', price: 32, description: 'Floral cítrico versátil.', image: 'lattafa/yara tous lattafa.jpg' },
+                    { name: 'Bade\'e Al Oud - Honor & Glory Lattafa', price: 32, description: 'Madera premium con ámbar y especias.', image: 'lattafa/bade%27e%20al%20oud%20-%20honor%20%26%20glory%20lattafa.jpg', shortName: 'Honor & Glory' },
+                    { name: 'Bade\'e Al Oud - Noble Blush Lattafa', price: 32, description: 'Suave con florales y rosados.', image: 'lattafa/bade%27e%20al%20oud%20-%20noble%20blush%20lattafa.jpg', shortName: 'Noble Blush' },
+                    { name: 'Bade\'e Al Oud - Oud For Glory Lattafa', price: 32, description: 'Madera pura con especias orientales.', image: 'lattafa/bade%27e%20al%20oud%20-%20oud%20for%20glory%20lattafa.jpg', shortName: 'Oud For Glory' },
+                    { name: 'Bade\'e Al Oud - Sublime Lattafa', price: 32, description: 'Refinado con madera profunda y ámbar.', image: 'lattafa/bade%27e%20al%20oud%20-%20sublime%20lattafa.jpg', shortName: 'Sublime' },
+                    { name: 'Bade\'e Al Oud - Amethyst Lattafa', price: 32, description: 'Mística con notas minerales y madera.', image: 'lattafa/bade%27e%20al%20oud%20-%20amethyst%20lattafa.jpg', shortName: 'Amethyst' },
+                    { name: 'Art Of Universe Lattafa', price: 38, description: 'Único con madera aromática y minerales.', image: 'lattafa/art%20of%20universe%20lattafa.jpg', shortName: 'Art Of Universe' },
+                    { name: 'Haya Lattafa', price: 32, description: 'Floral sereno con jazmín y gardenia.', image: 'lattafa/haya%20lattafa.jpg', shortName: 'Haya' },
+                    { name: 'Khamrah Lattafa', price: 35, description: 'Oriental con incienso y especias cálidas.', image: 'lattafa/khamrah%20lattafa.jpg', shortName: 'Khamrah' },
+                    { name: 'Khamrah Qahwa Lattafa', price: 35, description: 'Oriental con café y cacao.', image: 'lattafa/khamrah%20qahwa%20lattafa.jpg', shortName: 'Khamrah Qahwa' },
+                    { name: 'Khamrah Dukham Lattafa', price: 35, description: 'Oriental intenso con ahumados y especiados.', image: 'lattafa/khamrah%20dukham%20lattafa.jpg', shortName: 'Khamrah Dukham' },
+                    { name: 'Victoria Lattafa', price: 35, description: 'Femenino triunfante con florales y afrutados.', image: 'lattafa/victoria%20lattafa.jpg', shortName: 'Victoria' },
+                    { name: 'Mayar Lattafa', price: 35, description: 'Luminoso fresco con cítricos y florales.', image: 'lattafa/mayar%20lattafa.jpg', shortName: 'Mayar' },
+                    { name: 'Mayar Cherry Intense Lattafa', price: 35, description: 'Afrutado intenso con cereza profunda.', image: 'lattafa/mayar%20cherry%20intense%20lattafa.jpg', shortName: 'Mayar Cherry Intense' },
+                    { name: 'Mayar Natural Intense Lattafa', price: 35, description: 'Natural intenso con notas orgánicas.', image: 'lattafa/mayar%20natural%20intense%20lattafa.jpg', shortName: 'Mayar Natural Intense' },
+                    { name: 'Her Confession Lattafa', price: 38, description: 'Femenino confesional con florales secretas.', image: 'lattafa/her%20confession%20lattafa.jpg', shortName: 'Her Confession' },
+                    { name: 'His Confession Lattafa', price: 38, description: 'Masculino sincero con cálidas y amaderadas.', image: 'lattafa/his%20confession%20lattafa.jpg', shortName: 'His Confession' },
+                    { name: 'Fakhar Black Lattafa', price: 35, description: 'Oriental profundo con oscuras y especiadas.', image: 'lattafa/fakhar%20black%20lattafa.jpg', shortName: 'Fakhar Black' },
+                    { name: 'Fakhar Gold Extrait Lattafa', price: 35, description: 'Extracto dorado con ambarinas luxuosas.', image: 'lattafa/fakhar%20gold%20extrait%20lattafa.jpg', shortName: 'Fakhar Gold' },
+                    { name: 'Fakhar Rose Lattafa', price: 35, description: 'Floral exquisita con rosa noble.', image: 'lattafa/fakhar%20rose%20lattafa.jpg', shortName: 'Fakhar Rose' },
+                    { name: 'Eclaire Lattafa', price: 35, description: 'Brillante radiante con frescas y sofisticadas.', image: 'lattafa/eclaire%20lattafa.jpg', shortName: 'Eclaire' },
+                    { name: 'Ajwad Lattafa', price: 40, description: 'Premium exquisita con profundas orientales.', image: 'lattafa/ajwad%20lattafa.jpg', shortName: 'Ajwad' }
+                ]
+            },
+            { 
+                id: 'armaf', 
+                title: 'Colección Armaf', 
+                description: 'Aromas modernos y versátiles hechos para la vida urbana. Cada perfume combina frescura con carácter y acabado contemporáneo.',
+                products: [
+                    { name: 'Odyssey Spectra Armaf', price: 32, description: 'Fresco vibrante con cítricos y amaderado.', image: 'armaf/odyssey%20spectra%20armaf.jpg', shortName: 'Odyssey Spectra' },
+                    { name: 'Odyssey Mega Armaf', price: 32, description: 'Potente enérgico con especiadas.', image: 'armaf/odyssey%20mega%20armaf.jpg', shortName: 'Odyssey Mega' },
+                    { name: 'Odyssey Mandarinsky Armaf', price: 32, description: 'Cítrico afrutado con toque ambarino.', image: 'armaf/odyssey%20mandarinsky%20armaf.jpg', shortName: 'Odyssey Mandarinsky' },
+                    { name: 'Odyssey Homme Armaf', price: 32, description: 'Masculino elegante con aromáticas y maderas.', image: 'armaf/odyssey%20homme%20armaf.jpg', shortName: 'Odyssey Homme' },
+                    { name: 'Odyssey Dubai Chocolat Armaf', price: 32, description: 'Gourmand con chocolate y frutas secas.', image: 'armaf/odyssey%20dubai%20chocolat%20armaf.jpg', shortName: 'Dubai Chocolat' },
+                    { name: 'Odyssey Candee Armaf', price: 32, description: 'Dulce chispeante con caramelizadas y florales.', image: 'armaf/odyssey%20candee%20armaf.jpg', shortName: 'Odyssey Candee' },
+                    { name: 'Odyssey Artisto Armaf', price: 32, description: 'Creativo moderno con especiadas y dulces.', image: 'armaf/odyssey%20artisto%20armaf.jpg', shortName: 'Odyssey Artisto' },
+                    { name: 'Caballo Armaf', price: 32, description: 'Elegante con ambarinas y especiadas.', image: 'armaf/caballo%20armaf.jpg', shortName: 'Caballo' },
+                    { name: 'Yum Yum Armaf', price: 40, description: 'Dulce contemporáneo con gourmand suave.', image: 'armaf/yum%20yum%20armaf.jpg', shortName: 'Yum Yum' },
+                    { name: 'Island Bliss Armaf', price: 38, description: 'Fresco luminoso con tropical acogedora.', image: 'armaf/island%20bliss%20armaf.jpg', shortName: 'Island Bliss' },
+                    { name: 'Club de Nuit - Lion Heart Women Armaf', price: 35, description: 'Femenino contundente con floral y especiado.', image: 'armaf/Club%20de%20nuit%20-%20lion%20heart%20women%20armaf.jpg', shortName: 'Lion Heart Women' },
+                    { name: 'Club de Nuit - Lion Heart Man Armaf', price: 35, description: 'Masculino vibrante con especiadas y amaderadas.', image: 'armaf/Club%20de%20nuit%20-%20lion%20heart%20man%20armaf.jpg', shortName: 'Lion Heart Man' },
+                    { name: 'Club de Nuit Intese Man Armaf', price: 32, description: 'Poderoso moderno con especiadas y amaderadas.', image: 'armaf/club%20de%20nuit%20%20Intese%20Man%20armaf.jpg', shortName: 'Intese Man' },
+                    { name: 'Club de Nuit Untold Armaf', price: 32, description: 'Misteriosa sofisticada con cálidos.', image: 'armaf/club%20de%20nuit%20untold%20armaf.jpg', shortName: 'Club de Nuit Untold' }
+                ]
+            },
+            { 
+                id: 'herrera',
+                title: 'Colección Carolina Herrera',
+                description: 'Elegancia atemporal con un toque moderno. Fragancias que combinan sofisticación clásica con innovación contemporánea.',
+                products: [
+                    { name: 'Bad Boy Carolina Herrera', price: 30, description: 'Masculino audaz con amaderadas y especiadas.', image: 'herrera/bad%20boy%20carolina%20herrera.jpg', shortName: 'Bad Boy' },
+                    { name: 'Bad Boy Cobalt Carolina Herrera', price: 30, description: 'Fresco vibrante con azules y cítricos.', image: 'herrera/bad%20boy%20cobalt%20carolina%20herrera.jpg', shortName: 'Bad Boy Cobalt' },
+                    { name: 'Good Girl Blush Carolina Herrera', price: 30, description: 'Femenino delicado con rosadas y florales.', image: 'herrera/good%20girl%20blush%20carolina%20herrera%20.jpg', shortName: 'Good Girl Blush' },
+                    { name: 'Good Girl Carolina Herrera', price: 30, description: 'Femenino icónico con dulzura y sensualidad.', image: 'herrera/good%20girl%20carolina%20herrera%20.jpg', shortName: 'Good Girl' },
+                    { name: 'Very Good Girl Carolina Herrera', price: 30, description: 'Evolucionado con intensas y sofisticadas.', image: 'herrera/Very%20Good%20Girl%20Carolina%20Herrera.jpg', shortName: 'Very Good Girl' },
+                    { name: 'Very Good Girl Glam Carolina Herrera', price: 30, description: 'Glamuroso con brillantes y seductores.', image: 'herrera/Very%20Good%20Girl%20Glam%20Carolina%20Herrera.jpg', shortName: 'Very Good Girl Glam' },
+                    { name: '212 VIP Black Carolina Herrera', price: 25, description: 'Nocturno con bergamota y cuero ahumado.', image: 'herrera/212 vip black carolina herrera.jpg', shortName: '212 VIP Black' },
+                    { name: '212 VIP Men Carolina Herrera', price: 25, description: 'Masculino con cítrica, menta y amaderado.', image: 'herrera/212 vip men carolina herrera.jpg', shortName: '212 VIP Men' },
+                    { name: '212 VIP Rose Carolina Herrera', price: 25, description: 'Femenino con frambuesa, champán y rosa.', image: 'herrera/212 vip rose carolina herrera.jpg', shortName: '212 VIP Rose' },
+                    { name: 'La Bomba Carolina Herrera', price: 35, description: 'Floral oriental con rosa y gardenia.', image: 'herrera/la bomba carolina herrera.jpg', shortName: 'La Bomba' } 
+                ]
+            },
+            { 
+                id: 'orientica', 
+                title: 'Colección Orientica', 
+                description: 'Selección curada de fragancias premium con carácter distintivo.',
+                products: [
+                    { name: 'Amber Rouge Orientica', price: 35, description: 'Ámbar rojo con orientales profundas.', image: 'orientica/amber rouge orientica.jpg', shortName: 'Amber Rouge' },
+                    { name: 'Azure Fantasy Orientica', price: 40, description: 'Fantasía azul con frescos y misteriosos.', image: 'orientica/azure fantasy orientica.jpg', shortName: 'Azure Fantasy' },
+                    { name: 'Oud Saffron Orientica', price: 40, description: 'Oud con azafrán exótico.', image: 'orientica/oud saffron orientica.jpg', shortName: 'Oud Saffron' },
+                    { name: 'Royal Amber Lujo Baúl Orientica', price: 40, description: 'Ámbar real lujo con nobles.', image: 'orientica/royal amber lujo baúl orientica.jpg', shortName: 'Royal Amber Lujo Baúl' },
+                    { name: 'Royal Amber Orientica', price: 35, description: 'Ámbar real con nobles y sofisticados.', image: 'orientica/royal amber orientica.jpg', shortName: 'Royal Amber' },
+                    { name: 'Royal Bleu Orientica', price: 40, description: 'Azul real con frescos y amaderados.', image: 'orientica/royal bleu orientica.jpg', shortName: 'Royal Bleu' },
+                    { name: 'Velvet Gold Orientica', price: 40, description: 'Oro aterciopelado con calidez suave.', image: 'orientica/velvet gold orientica.jpg', shortName: 'Velvet Gold' }
+                ]
+            },
+            { 
+                id: 'lacoste', 
+                title: 'Colección Lacoste', 
+                description: 'Fragancias deportivas y frescas con estilo clásico y elegancia atemporal.',
+                products: [
+                    { name: 'Lacoste L.12.12 Blanc', price: 25, description: 'Fresco limpio con blancas y cítricas.', image: 'lacoste/lacoste L.12.12 blanc.jpg', shortName: 'L.12.12 Blanc' },
+                    { name: 'Lacoste L.12.12 Bleu', price: 25, description: 'Azul vibrante con acuáticos y frescos.', image: 'lacoste/lacoste L.12.12 bleu.jpg', shortName: 'L.12.12 Bleu' },
+                    { name: 'Lacoste L.12.12 Noir', price: 25, description: 'Negro intenso con amaderadas y misteriosas.', image: 'lacoste/lacoste L.12.12 noir.jpg', shortName: 'L.12.12 Noir' },
+                    { name: 'Lacoste L.12.12 Rose', price: 25, description: 'Rosa delicado con florales suaves.', image: 'lacoste/lacoste L.12.12 rose.jpg', shortName: 'L.12.12 Rose' },
+                    { name: 'Lacoste L.12.12 Rouge', price: 25, description: 'Rojo apasionado con cálidas y seductoras.', image: 'lacoste/lacoste L.12.12 rouge.jpg', shortName: 'L.12.12 Rouge' },
+                    { name: 'Lacoste L.12.12 Vert', price: 25, description: 'Verde natural con herbales y frescos.', image: 'lacoste/lacoste L.12.12 vert.jpg', shortName: 'L.12.12 Vert' },
+                    { name: 'Lacoste', price: 25, description: 'Clásico Lacoste con frescura deportiva.', image: 'lacoste/lacoste.jpg', shortName: 'Lacoste' }
+                ]
+            },
+            { 
+                id: 'haramain', 
+                title: 'Colección Al Haramain', 
+                description: 'Fragancias premium con oud y ámbar de alta calidad, elaboradas con ingredientes naturales.',
+                products: [
+                    { name: 'Amber Oud Al Haramain', price: 35, description: 'Oud con ámbar rica y profunda.', image: 'haramain/amber oud al haramain.jpg', shortName: 'Amber Oud' },
+                    { name: 'Amber Oud Aqua Dubai Al Haramain', price: 35, description: 'Acuático de Amber Oud con frescos.', image: 'haramain/amber oud aqua dubai al haramain.jpg', shortName: 'Aqua Dubai' },
+                    { name: 'Amber Oud Bleu Edition Al Haramain', price: 35, description: 'Edición azul con oud y ámbar fresca.', image: 'haramain/amber oud bleu edition al haramain.jpg', shortName: 'Bleu Edition' },
+                    { name: 'Amber Oud Carbon Edition Al Haramain', price: 35, description: 'Edición carbón con oscuras y amaderadas.', image: 'haramain/amber oud carbon edition al haramain.jpg', shortName: 'Carbon Edition' },
+                    { name: 'Amber Oud Dubai Night Al Haramain', price: 35, description: 'Noche de Dubai con oud y ámbar.', image: 'haramain/amber oud dubai night al haramain.jpg', shortName: 'Dubai Night' },
+                    { name: 'Amber Oud Gold Edition Al Haramain', price: 32, description: 'Edición dorada con lujo y calidez.', image: 'haramain/amber oud gold edition al haramain.jpg', shortName: 'Gold Edition' },
+                    { name: 'Amber Oud Private Edition Al Haramain', price: 35, description: 'Edición privada con oud exclusivo.', image: 'haramain/amber oud private edition al haramain.jpg', shortName: 'Private Edition' },
+                    { name: 'Amber Oud Ultra Violet Al Haramain', price: 32, description: 'Ultra violeta con vibrantes orientales.', image: 'haramain/amber oud ultra violet al haramain.jpg', shortName: 'Ultra Violet' }
+                ]
+            },
+            { 
+                id: 'gaultier', 
+                title: 'Colección Jean Paul Gaultier', 
+                description: 'Fragancias atrevidas y creativas con un toque de moda parisina.',
+                products: [
+                    { name: 'Le Male Jean Paul Gaultier', price: 35, description: 'Masculino fresco con menta, lavanda, naranja.', image: 'gaultier/le%20male%20jean%20paul%20gaultier.jpg' },
+                    { name: 'Le Male Elixir Jean Paul Gaultier', price: 35, description: 'Intensa versión con amaderadas, vainilla.', image: 'gaultier/le%20male%20elixir%20jean%20paul%20gaultier.jpg' },
+                    { name: 'Ultra Male Jean Paul Gaultier', price: 35, description: 'Frescura extrema con bergamota, menta.', image: 'gaultier/ultra%20male%20jean%20paul%20gaultier.jpg' },
+                    { name: 'La Belle Jean Paul Gaultier', price: 35, description: 'Floral femenino con frambuesa, jazmín.', image: 'gaultier/la%20belle%20jean%20paul%20gaultier.jpg' },
+                    { name: 'La Belle Paradise Garden Jean Paul Gaultier', price: 35, description: 'Tropical con frutas, flores, vainilla.', image: 'gaultier/la%20belle%20paradise%20garden%20jean%20paul%20gaultier.jpg' },
+                    { name: 'Le Beau Jean Paul Gaultier', price: 35, description: 'Masculino fresco con bergamota, pomelo.', image: 'gaultier/le%20beau%20jean%20paul%20gaultier.jpg' },
+                    { name: 'Le Beau Paradise Garden Jean Paul Gaultier', price: 35, description: 'Tropicales y amaderadas.', image: 'gaultier/le%20beau%20paradise%20garden%20jean%20paul%20gaultier.jpg' },
+                    { name: 'Gaultier Divine Jean Paul Gaultier', price: 35, description: 'Floral oriental con ylang-ylang, jazmín.', image: 'gaultier/gaultier%20divine%20jean%20paul%20gaultier.jpg' },
+                    { name: 'Gaultier Divine Le Parfum Jean Paul Gaultier', price: 35, description: 'Más concentrada del Divine.', image: 'gaultier/gaultier%20divine%20le%20parfum%20jean%20paul%20gaultier.jpg' },
+                    { name: 'Gaultier Divine Elixir Jean Paul Gaultier', price: 35, description: 'Extracto con intensas y duraderas.', image: 'gaultier/gaultier%20divine%20elixir%20jean%20paul%20gaultier.jpg' }
+                ]
+            },
+            { 
+                id: 'afnan', 
+                title: 'Colección Afnan', 
+                description: 'Fragancias orientales y refinadas con ingredientes premium y elegancia árabe.',
+                products: [
+                    { name: 'Afnan 9 AM', price: 32, description: 'Matutino fresco con cítricas y florales.', image: 'afnan/9 AM Afnan.jpg' },
+                    { name: 'Afnan 9 AM Dive', price: 32, description: 'Matutino profundo con acuáticas y frescas.', image: 'afnan/9 AM Dive Afnan.jpg' },
+                    { name: 'Afnan 9 AM Pour Femme', price: 32, description: 'Matutino femenino con delicadas y florales.', image: 'afnan/9 AM Pour Femme Afnan.jpg' },
+                    { name: 'Afnan 9 PM', price: 32, description: 'Nocturno con cálidas y seductoras.', image: 'afnan/9 PM Afnan.jpg' },
+                    { name: 'Afnan 9 PM Elixir', price: 32, description: 'Nocturno concentrado con intensas.', image: 'afnan/9 PM Elixir Afnan.jpg' },
+                    { name: 'Afnan 9 PM Night Out', price: 32, description: 'Nocturno para salir con vibrantes.', image: 'afnan/9 PM Night Out Afnan.jpg' },
+                    { name: 'Afnan 9 PM Pour Femme', price: 32, description: 'Nocturno femenino con sensuales.', image: 'afnan/9 PM Pour Femme Afnan.jpg' },
+                    { name: 'Afnan 9 PM Rebel', price: 32, description: 'Nocturno rebelde con audaces.', image: 'afnan/9 PM Rebel Afnan.jpg' }
+                ]
+            },
+            { 
+                id: 'paco-rabanne', 
+                title: 'Colección Paco Rabanne', 
+                description: 'Fragancias audaces y modernas con un toque de innovación y sensualidad.',
+                products: [
+                    { name: 'Invictus Paco Rabanne', price: 27, description: 'Frescura deportiva con cítricas y madera.', image: 'paco-rabanne/invictus%20paco%20rabanne.jpg' },
+                    { name: 'Olympéa Paco Rabanne', price: 25, description: 'Floral oriental con jazmín, vainilla.', image: 'paco-rabanne/Olympéa Paco Rabanne.jpg' }
+                ]
+            },
+            { 
+                id: 'moschino', 
+                title: 'Colección Moschino', 
+                description: 'Fragancias divertidas y atrevidas con un giro fashion y juvenil.',
+                products: [
+                    { name: 'Moschino Bubble Gum', price: 25, description: 'Dulce atrevido con caramelo y flores.', image: 'moschino/moschino%20bubble%20gum.jpg' },
+                    { name: 'Moschino Toy Boy', price: 25, description: 'Juguetón con moderna y femenina.', image: 'moschino/moschino%20toy%20boy.jpg' }
+                ]
+            },
+            { 
+                id: 'tommy', 
+                title: 'Colección Tommy', 
+                description: 'Fragancias clásicas y deportivas con frescura americana y elegancia.',
+                products: [
+                    { name: 'Tommy Girl', price: 25, description: 'Clásica fresca con toque cremoso.', image: 'tommy/Tommy Girl.jpg' },
+                    { name: 'Tommy', price: 25, description: 'Limpio deportivo con verdes.', image: 'tommy/Tommy.jpg' }
+                ]
+            },
+            { 
+                id: 'dior', 
+                title: 'Colección Dior', 
+                description: 'Fragancias lujosas y refinadas con elegancia parisina y sofisticación.',
+                products: [
+                    { name: 'Sauvage Dior', price: 10, description: 'Intenso con bergamota y amaderadas.', image: 'dior/sauvage%20dior.jpg' }
+                ]
+            },
+            { 
+                id: 'victorinox', 
+                title: 'Colección Victorinox', 
+                description: 'Fragancias precisas y frescas con un toque suizo de calidad y funcionalidad.',
+                products: [
+                    { name: 'Victorinox Swiss Army', price: 25, description: 'Masculino fresco con elegancia suiza.', image: 'victorinox/victorinox%20swiss%20army.jpg' }
+                ]
+            },
+            { 
+                id: 'bharara', 
+                title: 'Colección Bharara', 
+                description: 'Fragancias exóticas y misteriosas con notas orientales y lujo.',
+                products: [
+                    { name: 'Bharara Bleu', price: 32, description: 'Azul con frescas y misteriosas.', image: 'bharara/bharara%20bleu.jpg' },
+                    { name: 'Bharara King', price: 32, description: 'Regio con nobles y orientales.', image: 'bharara/bharara%20king.jpg' }
+                ]
+            },
+            { 
+                id: 'versace', 
+                title: 'Colección Versace', 
+                description: 'Fragancias glamurosas y seductoras con estilo italiano y pasión.',
+                products: [
+                    { name: 'Versace Eros Flame', price: 35, description: 'Apasionado con cálidas y seductoras.', image: 'versace/versace%20eros%20flame.jpg' },
+                    { name: 'Versace Eros', price: 35, description: 'Seductor con amaderadas y especiadas.', image: 'versace/versace%20eros.jpg' }
+                ]
+            },
+            { 
+                id: 'creed', 
+                title: 'Colección Creed', 
+                description: 'Fragancias premium y exclusivas con artesanía británica y lujo atemporal.',
+                products: [
+                    { name: 'Creed Aventus', price: 28, description: 'Legendario con frutales y amaderadas.', image: 'creed/creed%20aventus.jpg' },
+                    { name: 'Creed Silver Mountain Water', price: 28, description: 'Fresco alpino con acuáticas.', image: 'creed/creed%20silver%20mountain%20water.jpg' }
+                ]
+            },
+            { 
+                id: 'valentino', 
+                title: 'Colección Valentino', 
+                description: 'Fragancias románticas y elegantes con un toque italiano de moda y pasión.',
+                products: [
+                    { name: 'Valentino Born in Roma Intense', price: 30, description: 'Intenso con florales y amaderadas.', image: 'valentino/Valentino Born in Roma Intense.jpg' },
+                    { name: 'Valentino Donna Born in Roma', price: 30, description: 'Femenino con florales y dulces.', image: 'valentino/Valentino Donna Born in Roma.jpg' }
+                ]
+            },
+            { 
+                id: 'vulcan', 
+                title: 'Colección French Avenue', 
+                description: 'Fragancias aventureras y naturales con inspiración en la naturaleza y la fuerza.',
+                products: [
+                    { name: 'Vulcan Baie French Avenue', price: 35, description: 'Bañado con frutales y frescas.', image: 'vulcan/vulcan%20baie%20french%20avenue.jpg' },
+                    { name: 'Vulcan Feu French Avenue', price: 35, description: 'Fuego con cálidas y especiadas.', image: 'vulcan/vulcan%20feu%20french%20avenue.jpg' },
+                    { name: 'Vulcan French Avenue', price: 35, description: 'Clásico con naturales y amaderadas.', image: 'vulcan/vulcan%20french%20avenue.jpg' },
+                    { name: 'Vulcan Sable French Avenue', price: 35, description: 'Sable con oscuras y misteriosas.', image: 'vulcan/vulcan%20sable%20french%20avenue.jpg' }
+                ]
+            }
+        ];
+
+        const catalogContainer = document.getElementById('catalog-container');
+
+        const createGradient = (sectionIndex, itemIndex) => {
+            const hue = (sectionIndex * 36 + itemIndex * 12) % 360;
+            const light = 86 - (itemIndex % 5) * 4;
+            return `linear-gradient(180deg, hsl(${hue}, 20%, ${light}%), hsl(${(hue + 18) % 360}, 28%, ${Math.max(light - 18, 28)}%))`;
+        };
+
+        const extractShortName = (name) => {
+            const keywords = ['Lattafa', 'Armaf', 'Carolina Herrera', 'Orientica', 'Lacoste', 'Al Haramain', 'Jean Paul Gaultier', 'Paco Rabanne', 'Moschino', 'Tommy', 'Dior', 'Victorinox', 'Bharara', 'Versace', 'Creed', 'Valentino', 'French Avenue', 'Afnan'];
+            let shortName = name;
+            keywords.forEach(keyword => {
+                shortName = shortName.replace(new RegExp(`\\s*${keyword}\\s*$`, 'i'), '').trim();
+            });
+            return shortName;
+        };
+
+        const renderCollection = (section, index) => {
+            const cards = section.products.map((product, itemIndex) => {
+                const price = `$${product.price}`;
+                const gradient = createGradient(index, itemIndex);
+                const displayName = product.shortName || extractShortName(product.name);
+                
+                let imageStyle = '';
+                if (product.image) {
+                    imageStyle = `background-image: url('${product.image}'); background-size: cover; background-position: center;`;
+                } else {
+                    imageStyle = `background: ${gradient};`;
+                }
+
+                return `
+                    <article class="product-card">
+                        <div class="product-image" style="${imageStyle}">
+                            <span>${displayName}</span>
+                        </div>
+                        <div class="product-body">
+                            <h4>${product.name}</h4>
+                            <p class="product-price">${price}</p>
+                            <p class="product-text">${product.description}</p>
+                        </div>
+                    </article>`;
+            }).join('');
+
+            return `
+                <section id="${section.id}" class="collection-section ${index % 2 === 1 ? 'collection-alt' : ''}">
+                    <div class="section-header">
+                        <h3>${section.title}</h3>
+                        <p>${section.description}</p>
+                    </div>
+                    <div class="product-grid">
+                        ${cards}
+                    </div>
+                </section>`;
+        };
+
+        catalogContainer.innerHTML = collections.map(renderCollection).join('');
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!expanded));
+            dropdownMenu.classList.toggle('show');
+        });
+
+        const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                dropdownMenu.classList.remove('show');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+
+    <footer class="page-footer">
+        <p>© 2026 D&G Essences. Lujo en cada gota.</p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
